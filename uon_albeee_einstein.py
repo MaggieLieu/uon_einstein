@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from adk_service import initialize_adk, run_adk_sync
+from adk_service import initialize_adk, run_adk_async
 from settings import MESSAGE_HISTORY_KEY
 
 
