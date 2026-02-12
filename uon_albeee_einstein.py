@@ -40,7 +40,9 @@ st.markdown("""
 
 # Title and description
 st.title("🔬 Albeee Einstein")
-st.caption("Your University of Nottingham Physics & Astronomy Ambassador")
+st.caption("Hello! I'm Albeee Einstein, your guide to the University of Nottingham's "
+        "School of Physics and Astronomy. Ask me anything about our courses, research, "
+        "or the university!")
 
 
 adk_runner, current_session_id = initialize_adk()
@@ -50,16 +52,7 @@ adk_runner, current_session_id = initialize_adk()
 
 if MESSAGE_HISTORY_KEY not in st.session_state:
     st.session_state[MESSAGE_HISTORY_KEY] = []
-    # # Add welcome message
-    # welcome_msg = (
-    #     "Hello! I'm Albeee Einstein, your guide to the University of Nottingham's "
-    #     "School of Physics and Astronomy. Ask me anything about our courses, research, "
-    #     "or the university!"
-    # )
-    # st.session_state.messages.append({
-    #     "role": "assistant",
-    #     "content": welcome_msg
-    # })
+
 
 
 # Display existing chat messages from the session state.
