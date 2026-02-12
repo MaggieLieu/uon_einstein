@@ -7,10 +7,10 @@ load_dotenv() # Load environment variables from a .env file. This is crucial for
 logging.basicConfig(level=logging.ERROR) 
 MODEL_GEMINI = "gemini-2.0-flash" # Specifies the Google Gemini model to be used by the ADK agent.
 APP_NAME_FOR_ADK = "greeting_app" # A unique name for your application within ADK, used for session management.
-USER_ID = "Maggie" # A default user ID. In a real application, this would be dynamic (e.g., from a login system).
+USER_ID = "ketanraj" # A default user ID. In a real application, this would be dynamic (e.g., from a login system).
 # Defines the initial state for new ADK sessions. This provides default values for user information.
 INITIAL_STATE = {
-    "user_name": "Maggie",
+    "user_name": "Ketan Raj",
     "user_hobbies": "Coding, Reading",
     "user_interests": "AI, Technology, Open Source"
 }
