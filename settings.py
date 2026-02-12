@@ -1,5 +1,6 @@
 import os
 import logging
+import streamlit as st 
 from dotenv import load_dotenv
 load_dotenv() # Load environment variables from a .env file. This is crucial for keeping sensitive data like API keys out of your main codebase.
 # Suppress most ADK internal logs to keep the console clean during Streamlit runs.
