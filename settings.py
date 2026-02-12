@@ -1,6 +1,5 @@
 import os
 import logging
-import streamlit as st 
 from dotenv import load_dotenv
 load_dotenv() # Load environment variables from a .env file. This is crucial for keeping sensitive data like API keys out of your main codebase.
 # Suppress most ADK internal logs to keep the console clean during Streamlit runs.
@@ -18,16 +17,3 @@ INITIAL_STATE = {
 MESSAGE_HISTORY_KEY = "messages_final_mem_v2" # Key used by Streamlit to store the chat history in its session state.
 ADK_SESSION_KEY = "adk_session_id" # Key used by Streamlit to store the unique ADK session ID.
 
-
-if "GOOGLE_API_KEY" in st.secrets:
-    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
-# Option 2: From environment variable (already set)
-elif "GOOGLE_API_KEY" not in os.environ:
-    # Option 3: Prompt user to enter it
-    st.error("⚠️ Google API Key not found!")
-    api_key = st.text_input("Enter your Google API Key:", type="password")
-    if api_key:
-        os.environ["GOOGLE_API_KEY"] = api_key
-        st.rerun()
-    else:
-        st.stop()
