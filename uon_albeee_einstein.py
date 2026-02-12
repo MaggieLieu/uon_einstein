@@ -1,12 +1,9 @@
 import streamlit as st
 import os
-from dotenv import load_dotenv
 from google import adk  # Adjust import based on exact ADK package (google.adk / from google.adk.agents import Agent)
-import google.generativeai as genai  # Usually needed for configuration
 from google.adk.agents import Agent  # Main agent class from ADK
 from google.adk.tools import google_search  # Assuming this is how the built-in search tool is imported
 
-load_dotenv()
 # Set up API key
 # Option 1: From Streamlit secrets
 if "GOOGLE_API_KEY" in st.secrets:
