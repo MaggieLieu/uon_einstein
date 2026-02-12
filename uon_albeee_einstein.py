@@ -84,11 +84,7 @@ with st.sidebar:
         "with the official university website."
     )
     
-    # Clear chat button
-    if st.button("Clear Chat History"):
-        st.session_state.messages = []
-        st.rerun()
-    
+
     st.divider()
     
     st.markdown("### Quick Links")
