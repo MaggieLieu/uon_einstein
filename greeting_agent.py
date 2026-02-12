@@ -1,6 +1,6 @@
 from google.adk.agents import Agent
 from google.adk.tools import google_search  # Assuming this is how the built-in search tool is imported
-from google import adk 
+from google.genai import types
 
 def create_greeting_agent():
     """
@@ -34,7 +34,7 @@ def create_greeting_agent():
         description="An agent that greets the user based on their name, hobbies, and interests.", # A brief, human-readable description of the agent's role.
         instruction=system_prompt,
         tools=[google_search], # Registers the 'fetch_greeting' function as a callable tool for this agent.
-        generate_content_config=adk.types.GenerateContentConfig(  # or google.generativeai.types if import differs
+        generate_content_config=types.GenerateContentConfig(  
         temperature=0.2,)
     )
     return root_agent
