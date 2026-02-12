@@ -1,16 +1,27 @@
 import streamlit as st
 from adk_service import initialize_adk, run_adk_sync
-from settings import MESSAGE_HISTORY_KEY, get_api_key
+from settings import MESSAGE_HISTORY_KEY
+
+
+if "GOOGLE_API_KEY" in st.secrets:
+    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+# Option 2: From environment variable (already set)
+elif "GOOGLE_API_KEY" not in os.environ:
+    # Option 3: Prompt user to enter it
+    st.error("⚠️ Google API Key not found!")
+    api_key = st.text_input("Enter your Google API Key:", type="password")
+    if api_key:
+        os.environ["GOOGLE_API_KEY"] = api_key
+        st.rerun()
+    else:
+        st.stop()
+
 
 st.set_page_config(page_title="ADK Greeting & Chat Agent", layout="wide") # Configures the browser tab title and page layout.
 st.title("👋 Greeting & Chat Assistant (Powered by ADK & Gemini)") # Main title of the app.
 st.markdown("This application uses the Google Agent Development Kit (ADK) to provide a chat interface.") # Descriptive text.
 st.divider() # A visual separator.
-api_key = get_api_key() # Retrieve the API key from settings.
-if not api_key:
-    st.error("⚠️ Action Required: Google API Key Not Found or Invalid! Please set GOOGLE_API_KEY in your .env file. ⚠️")
-    st.stop() # Stop the application if the API key is missing, prompting the user for action.
-# Initialize ADK runner and session ID (cached to run only once).
+
 adk_runner, current_session_id = initialize_adk()
 
 st.divider()
