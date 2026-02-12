@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from adk_service import initialize_adk, run_adk_async
+from adk_service import initialize_adk, run_adk_sync
 from settings import MESSAGE_HISTORY_KEY
 
 
@@ -44,7 +44,7 @@ if prompt := st.chat_input("Ask for a greeting (e.g., 'greet me'), or just chat.
     with st.chat_message("assistant"):
         message_placeholder = st.empty() # Create an empty placeholder to update with the assistant's response.
         with st.spinner("Assistant is thinking..."): # Show a spinner while the agent processes the request.
-            agent_response = run_adk_async(adk_runner, current_session_id, prompt) # Call the synchronous ADK runner.
+            agent_response = run_adk_sync(adk_runner, current_session_id, prompt) # Call the synchronous ADK runner.
             message_placeholder.markdown(agent_response) # Update the placeholder with the final response.
     
     # Append assistant's response to history.
