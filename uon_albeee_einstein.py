@@ -18,14 +18,33 @@ elif "GOOGLE_API_KEY" not in os.environ:
         st.stop()
 
 
-st.set_page_config(page_title="ADK Greeting & Chat Agent", layout="wide") # Configures the browser tab title and page layout.
-st.title("👋 Greeting & Chat Assistant (Powered by ADK & Gemini)") # Main title of the app.
-st.markdown("This application uses the Google Agent Development Kit (ADK) to provide a chat interface.") # Descriptive text.
-st.divider() # A visual separator.
+# Page configuration
+st.set_page_config(
+    page_title="Albeee Einstein - UoN Physics Assistant",
+    page_icon="🔬",
+    layout="centered"
+)
+
+# Custom CSS for better styling
+st.markdown("""
+    <style>
+    .main {
+        max-width: 800px;
+    }
+    .stChatMessage {
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Title and description
+st.title("🔬 Albeee Einstein")
+st.caption("Your University of Nottingham Physics & Astronomy Ambassador")
+
 
 adk_runner, current_session_id = initialize_adk()
 
-st.divider()
 st.subheader("Chat with the Assistant") # Subheading for the chat section.
 # Initialize chat message history in Streamlit's session state if it doesn't exist.
 if MESSAGE_HISTORY_KEY not in st.session_state:
