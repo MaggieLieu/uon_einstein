@@ -1,8 +1,8 @@
 import streamlit as st
 import os
-from google import adk  # Adjust import based on exact ADK package (google.adk / from google.adk.agents import Agent)
 from google.adk.agents import Agent  # Main agent class from ADK
 from google.adk.tools import google_search  # Assuming this is how the built-in search tool is imported
+from google.genai import types
 
 # Set up API key
 # Option 1: From Streamlit secrets
@@ -50,7 +50,7 @@ root_agent = Agent(
     description="University of Nottingham School of Physics and Astronomy Information",
     instruction=system_prompt,
     tools=[google_search],  # Built-in Google Search tool from ADK
-    generate_content_config=adk.types.GenerateContentConfig(  # or google.generativeai.types if import differs
+    generate_content_config=types.GenerateContentConfig(
         temperature=0.2,
     )
 )
