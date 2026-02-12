@@ -5,7 +5,7 @@ import os
 from google.adk.sessions import InMemorySessionService
 from google.adk.runners import Runner
 from google.genai import types as genai_types
-from agents.greeting_agent import create_greeting_agent
+from greeting_agent import create_greeting_agent
 from settings import APP_NAME_FOR_ADK, USER_ID, INITIAL_STATE, ADK_SESSION_KEY
 
 @st.cache_resource
