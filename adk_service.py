@@ -67,3 +67,15 @@ async def run_adk_async(runner: Runner, session_id: str, user_message_text: str)
                 final_response_text = event.content.parts[0].text
             break 
     return final_response_text
+
+def run_adk_sync(runner: Runner, session_id: str, user_message_text: str) -> str:
+
+    """
+
+    Synchronous wrapper for running ADK, as Streamlit does not directly support async calls in the main thread.
+
+    """
+
+    # Runs the asynchronous function in a new event loop.
+
+    return asyncio.run(run_adk_async(runner, session_id, user_message_text))
