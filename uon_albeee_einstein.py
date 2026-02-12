@@ -74,3 +74,25 @@ if prompt := st.chat_input("Ask for a greeting (e.g., 'greet me'), or just chat.
     
     # Append assistant's response to history.
     st.session_state[MESSAGE_HISTORY_KEY].append({"role": "assistant", "content": agent_response})
+
+# Sidebar with additional info
+with st.sidebar:
+    st.header("About")
+    st.info(
+        "This chatbot uses AI to answer questions about the University of Nottingham's "
+        "School of Physics and Astronomy. Information may change, so always verify "
+        "with the official university website."
+    )
+    
+    # Clear chat button
+    if st.button("Clear Chat History"):
+        st.session_state.messages = []
+        st.rerun()
+    
+    st.divider()
+    
+    st.markdown("### Quick Links")
+    st.markdown("""
+    - [University of Nottingham](https://www.nottingham.ac.uk)
+    - [Physics & Astronomy](https://www.nottingham.ac.uk/physics)
+    """)
