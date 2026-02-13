@@ -14,12 +14,6 @@ INITIAL_STATE = {
     "user_hobbies": "Coding, Reading",
     "user_interests": "AI, Technology, Open Source"
 }
-# These are now just "blueprints" or empty defaults
-#DEFAULT_INITIAL_STATE = {
-#    "user_name": "Guest",
-#    "user_hobbies": "Unknown",
-#    "user_interests": "Unknown"
-#}
 MESSAGE_HISTORY_KEY = "messages_final_mem_v2" # Key used by Streamlit to store the chat history in its session state.
 ADK_SESSION_KEY = "adk_session_id" # Key used by Streamlit to store the unique ADK session ID.
 
