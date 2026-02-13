@@ -5,14 +5,20 @@ load_dotenv() # Load environment variables from a .env file. This is crucial for
 # Suppress most ADK internal logs to keep the console clean during Streamlit runs.
 # You can change this to logging.INFO or logging.DEBUG for more verbose output during debugging.
 logging.basicConfig(level=logging.ERROR) 
-MODEL_GEMINI = "gemini-2.0-flash" # Specifies the Google Gemini model to be used by the ADK agent.
+#MODEL_GEMINI = "gemini-2.0-flash" # Specifies the Google Gemini model to be used by the ADK agent.
 APP_NAME_FOR_ADK = "greeting_app" # A unique name for your application within ADK, used for session management.
-USER_ID = "ketanraj" # A default user ID. In a real application, this would be dynamic (e.g., from a login system).
+#USER_ID = "ketanraj" # A default user ID. In a real application, this would be dynamic (e.g., from a login system).
 # Defines the initial state for new ADK sessions. This provides default values for user information.
-INITIAL_STATE = {
-    "user_name": "Ketan Raj",
-    "user_hobbies": "Coding, Reading",
-    "user_interests": "AI, Technology, Open Source"
+#INITIAL_STATE = {
+#    "user_name": "Ketan Raj",
+#    "user_hobbies": "Coding, Reading",
+#    "user_interests": "AI, Technology, Open Source"
+#}
+# These are now just "blueprints" or empty defaults
+DEFAULT_INITIAL_STATE = {
+    "user_name": "Guest",
+    "user_hobbies": "Unknown",
+    "user_interests": "Unknown"
 }
 MESSAGE_HISTORY_KEY = "messages_final_mem_v2" # Key used by Streamlit to store the chat history in its session state.
 ADK_SESSION_KEY = "adk_session_id" # Key used by Streamlit to store the unique ADK session ID.
