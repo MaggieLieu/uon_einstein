@@ -29,7 +29,7 @@ def create_greeting_agent():
     )
   
     root_agent = Agent(
-        model="gemini-2.5-pro",# "gemini-2.5-flash-lite",  # Confirmed valid model name in 2026
+        model="gemini-2-flash",# "gemini-2.5-flash-lite",  # Confirmed valid model name in 2026
         name="albeee_einstein_uon_ambassador",
         description="An agent that greets the user based on their name, hobbies, and interests.", # A brief, human-readable description of the agent's role.
         instruction=system_prompt,
